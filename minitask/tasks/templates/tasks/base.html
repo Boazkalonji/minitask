@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Mini-Task{% endblock %}</title>
+    
+    {% load static %}
+    <!-- Chargement du fichier CSS statique -->
+    <link rel="stylesheet" href="{% static 'tasks/style.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1><a href="{% url 'home' %}">📋 Mini-Task Manager</a></h1>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- C'est ici que le contenu des autres pages va s'insérer -->
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2026 - Mini-Task Django</p>
+    </footer>
+</body>
+</html>

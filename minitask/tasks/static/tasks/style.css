@@ -1,0 +1,65 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7f6;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 1rem 2rem;
+}
+
+header nav h1 a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+.container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.task-list {
+    list-style: none;
+    padding: 0;
+}
+
+.task-item {
+    background: white;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    border-left: 5px solid #3498db;
+}
+
+.task-item.done {
+    border-left-color: #2ecc71;
+    opacity: 0.8;
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.2rem 0.5rem;
+    font-size: 0.8rem;
+    border-radius: 4px;
+    background-color: #e67e22;
+    color: white;
+}
+
+.badge.termine {
+    background-color: #2ecc71;
+}
+
+footer {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 1rem;
+    color: #7f8c8d;
+    font-size: 0.9rem;
+}

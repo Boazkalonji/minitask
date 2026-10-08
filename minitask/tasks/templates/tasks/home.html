@@ -1,0 +1,26 @@
+{% extends 'tasks/base.html' %}
+
+{% block title %}Accueil - Liste des Tâches{% endblock %}
+
+{% block content %}
+<div class="task-section">
+    <h2>Liste de vos tâches</h2>
+
+    <ul class="task-list">
+        {% for task in taches %}
+            <li class="task-item {% if task.statut == 'termine' %}done{% endif %}">
+                <div class="task-info">
+                    <strong>{{ task.titre }}</strong>
+                    <p>{{ task.description }}</p>
+                    <span class="badge {{ task.statut }}">{{ task.get_statut_display }}</span>
+                </div>
+                <div class="task-meta">
+                    <small>Attribué à : <strong>{{ task.profil.user.username }}</strong></small>
+                </div>
+            </li>
+        {% empty %}
+            <p class="empty-msg">Aucune tâche pour le moment. Va en ajouter via <a href="{% url 'admin:index' %}">l'administration</a> !</p>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
