@@ -1,0 +1,20 @@
+{% extends 'tasks/base.html' %}
+
+{% block title %}Ajouter une tâche{% endblock %}
+
+{% block content %}
+<div class="task-section">
+    <h2>Créer une nouvelle tâche</h2>
+
+    <form method="POST" class="task-form">
+        {% csrf_token %}
+        
+        {{ form.as_p }}
+
+        <div class="form-actions">
+            <button type="submit" class="btn-submit">Enregistrer la tâche</button>
+            <a href="{% url 'home' %}" class="btn-cancel">Annuler</a>
+        </div>
+    </form>
+</div>
+{% endblock %}
