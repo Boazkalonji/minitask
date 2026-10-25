@@ -88,7 +88,8 @@ jobs:
       - name: Convertir le nom du dépôt en minuscules
         id: lower-repo
         run: |
-          echo "repoitory=GITHUB_REPOSITORY@L" >> $GITHUB_OUTPUT
+          REPO=$(echo "${{ github.repository }}" | tr '[:upper:]' '[:lower:]')
+          echo "repository=$REPO" >> $GITHUB_OUTPUT
 
       - name: Construire et publier l'image Docker
         uses: docker/build-push-action@v5
@@ -96,4 +97,4 @@ jobs:
           context: ./minitask
           file: ./minitask/Dockerfile
           push: true
-          tags: ghcr.io/${{steps.lower-repo.outputs.repoitory}}:latest
+          tags: ghcr.io/${{ steps.lower-repo.outputs.repository }}:latest
