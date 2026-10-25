@@ -83,10 +83,17 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+
+
+      - name: Convertir le nom du dépôt en minuscules
+        id: lower-repo
+        run: |
+          echo "repoitory=GITHUB_REPOSITORY@L" >> $GITHUB_OUTPUTS
+
       - name: Construire et publier l'image Docker
         uses: docker/build-push-action@v5
         with:
           context: ./minitask
           file: ./minitask/Dockerfile
           push: true
-          tags: ghcr.io/${{ github.repository_owner }}/minitask:latest
+          tags: ghcr.io/${{steps.lower-repo.outputs.repoitory}}:latest
